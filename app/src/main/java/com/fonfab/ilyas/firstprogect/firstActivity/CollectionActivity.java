@@ -21,5 +21,15 @@ public class CollectionActivity extends FragmentActivity {
         mCollectionPagerAdapter = new CollectionPagerAdapter(getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mCollectionPagerAdapter);
+
+        mViewPager.setOnPageChangeListener(
+                new ViewPager.SimpleOnPageChangeListener() {
+                    @Override
+                    public void onPageSelected(int position) {
+                        // When swiping between pages, select the
+                        // corresponding tab.
+                        getActionBar().setSelectedNavigationItem(position);
+                    }
+                });
     }
 }
